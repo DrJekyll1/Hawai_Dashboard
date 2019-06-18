@@ -1,0 +1,27 @@
+
+# PHP Phalcon
+
+# PHP Composer
+composer.phar
+composer.lock
+/vendor/
+
+# Apache Logs
+/docker/logs/access.log
+/docker/logs/error.log
+
+# Misc
+/public/phpinfo.php
+# PHP Phalcon
+
+# PHP Composer
+composer.phar
+composer.lock
+/vendor/
+
+# Apache Logs
+/docker/logs/access.log
+/docker/logs/error.log
+
+# Misc
+/public/phpinfo.php

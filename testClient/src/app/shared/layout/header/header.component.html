@@ -1,0 +1,32 @@
+<header *ngIf="(signedIn | async) === true">
+  <mat-toolbar color="primary" class="toolbar">
+    <span>
+    <h2 class="logo">
+      <a href="home.html" style="color: white; text-decoration: none"><img class="img-hawai"
+                                                                           src="../../assets/img/hawai_logo.png" >&nbsp; HAW Hawai Project</a>
+    </h2>
+  </span>
+    <span class="fill-remaining-space"></span>
+
+    <button mat-icon-button color="white" [matMenuTriggerFor]="menu" class="matMenu">
+      <mat-icon>more_vert</mat-icon>
+      <span>{{name}}</span>
+    </button>
+    <mat-menu #menu="matMenu" class="user_menu">
+      <button mat-menu-item>
+        <mat-icon color="primary">person</mat-icon>
+        <span>Profile</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>eject</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+
+</header>
+
+
+
+
+

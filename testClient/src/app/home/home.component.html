@@ -1,0 +1,92 @@
+<div class="background_contrainer">
+  <div>Welcome</div>
+
+  <div *ngIf="filesLoaded | async">
+    <h2>Vorhandene Daten:</h2>
+
+    <div class="example-container mat-elevation-z8">
+      <mat-table [dataSource]="dataSource" matSort >
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="no">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+          <td mat-cell *matCellDef="let element" > {{element.no}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="extension">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Endung </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.extension}} </mat-cell>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="version">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Version </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.version}} </mat-cell>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="clientName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Client </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.clientName}} </mat-cell>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="date">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Datum </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+
+      <mat-paginator #paginator
+                     [pageSize]="10"
+                     [pageSizeOptions]="[5, 10, 20]">
+
+      </mat-paginator>
+    </div>
+  </div>
+
+    <h2>Datei uploaden:</h2>
+
+    <input style="display: none"
+           type="file"
+           (change)="onFileChanged($event)"
+           #fileInput>
+    <button type="button" (click)="fileInput.click()">Pick File</button>
+    <button type="button" (click)="onUpload()">Upload</button>
+
+    <h2>Datei herunterladen:</h2>
+
+
+
+
+
+    <div class="download">
+      File name: <input #downloadName type="text">
+      Version: <input #downloadVersion type="text">
+      Datum: <input #downloadDate type="text">
+    </div>
+
+    <button (click)="download(downloadName.value, downloadVersion.value, downloadDate.value)">download</button>
+
+    <h2>Datein löschen</h2>
+
+    <div class="download">
+      File name: <input #name type="text">
+      Version: <input #version type="text">
+      Datum: <input #date type="text">
+    </div>
+
+    <button (click)="delete(name.value, version.value, date.value)">Delete</button>
+
+</div>
+

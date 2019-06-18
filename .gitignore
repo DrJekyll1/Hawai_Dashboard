@@ -1,0 +1,5 @@
+# General
+.DS_Store
+Thumbs.db
+**/.idea/
+npm-debug.log

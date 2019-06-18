@@ -1,0 +1,28 @@
+FROM node:latest
+
+
+WORKDIR /app
+
+RUN npm install -g @angular/cli
+
+#COPY package.json ./package.json
+#RUN npm install
+
+#COPY src ./src/
+#COPY e2e ./e2e/
+#COPY angular-cli.json ./angular-cli.json
+#COPY protractor.conf.js ./protractor.conf.js
+#COPY karma.conf.js ./karma.conf.js
+#COPY tslint.json ./tslint.json
+
+#RUN ng build --prod
+
+COPY run.sh /run.sh
+RUN chmod 755 /*.sh
+
+EXPOSE 4200
+
+Expose 49153
+
+VOLUME ["/app"]
+CMD ["/run.sh"]

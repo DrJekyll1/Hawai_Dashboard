@@ -1,0 +1,16 @@
+
+
+<layout-header></layout-header>
+
+<router-outlet>
+      <span *ngIf="showloader" class="loading">
+    <mat-progress-spinner mode="indeterminate" [color]="primary"></mat-progress-spinner>
+  </span>
+</router-outlet>
+
+<layout-footer></layout-footer>
+
+
+
+
+
